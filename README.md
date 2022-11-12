@@ -6,5 +6,5 @@ No terminal, execute os comandos:
 
 ```
 cd ruby
-ruby customer_success_balancing.rb
+ruby tests/customer_success_balancing_tests.rb
 ```
