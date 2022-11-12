@@ -8,6 +8,16 @@ class CustomerSuccessBalancing
 
   # Returns the ID of the customer success with most customers
   def execute
-    # Write your solution here
+    available_customer_success
+  end
+
+  private
+
+  attr_reader :customer_success, :away_customer_success
+
+  def available_customer_success
+    customer_success.reject do |current_customer_success|
+      away_customer_success.include?(current_customer_success[:id])
+    end
   end
 end
