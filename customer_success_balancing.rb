@@ -1,4 +1,4 @@
-require './filters/filter_valids_costumer_success.rb'
+require './filters/filter_valids_customer_success.rb'
 require './utils/message_errors.rb'
 require './validations/customer_success_validation.rb'
 require './validations/customer_validations.rb'
@@ -23,7 +23,7 @@ class CustomerSuccessBalancing
   attr_reader :customer_success, :away_customer_success, :customers
 
   def valid_customer_success
-    @valid_customer_success ||= Filters::FilterValidsCostumerSuccess.new(
+    @valid_customer_success ||= Filters::FilterValidsCustomerSuccess.new(
       customer_success: customer_success,
       away_customer_success: away_customer_success
     ).filter
@@ -35,7 +35,7 @@ class CustomerSuccessBalancing
 
   def customers_success_allowed_size?
     Validations::CustomerSuccessValidation.allowed_size(
-      costumer_success_list: customer_success
+      customer_success_list: customer_success
     )
   end
 

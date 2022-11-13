@@ -4,9 +4,9 @@ module Validations
     LIMIT_ID = 1_000_000
     LIMIT_SIZE = 1_000_000
 
-    def initialize(costumer:)
-      @id = costumer[:id]
-      @score = costumer[:score]
+    def initialize(customer:)
+      @id = customer[:id]
+      @score = customer[:score]
     end
 
     def valid?

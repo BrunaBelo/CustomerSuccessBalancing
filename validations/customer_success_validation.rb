@@ -4,9 +4,9 @@ module Validations
     LIMIT_ID = 1000
     LIMIT_SIZE = 1000
 
-    def initialize(costumer_success:, away_customer_success: [])
-      @id = costumer_success[:id]
-      @score = costumer_success[:score]
+    def initialize(customer_success:, away_customer_success: [])
+      @id = customer_success[:id]
+      @score = customer_success[:score]
       @away_customer_success = away_customer_success
     end
 
@@ -16,8 +16,8 @@ module Validations
         available_customer_success?
     end
 
-    def self.allowed_size(costumer_success_list:)
-      costumer_success_list.size < LIMIT_SIZE
+    def self.allowed_size(customer_success_list:)
+      customer_success_list.size < LIMIT_SIZE
     end
 
     private

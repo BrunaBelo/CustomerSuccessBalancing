@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require 'timeout'
-require './filters/filter_valids_costumer_success.rb'
+require './filters/filter_valids_customer_success.rb'
 
-class Filters::FilterValidsCostumerSuccessTests < Minitest::Test
+class Filters::FilterValidsCustomerSuccessTests < Minitest::Test
   def test_allowed_ids_filter
     filter = described_class.new(
       customer_success: [
@@ -31,6 +31,6 @@ class Filters::FilterValidsCostumerSuccessTests < Minitest::Test
   private
 
   def described_class
-    Filters::FilterValidsCostumerSuccess
+    Filters::FilterValidsCustomerSuccess
   end
 end
