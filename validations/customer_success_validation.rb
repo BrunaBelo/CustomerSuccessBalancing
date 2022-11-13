@@ -1,7 +1,8 @@
 module Validations
   class CustomerSuccessValidation
-    LIMIT_SCORE = 1000
-    LIMIT_ID = 10_000
+    LIMIT_SCORE = 10_000
+    LIMIT_ID = 1000
+    LIMIT_SIZE = 1000
 
     def initialize(costumer_success:, away_customer_success: [])
       @id = costumer_success[:id]
@@ -13,6 +14,10 @@ module Validations
       id_inside_limit? &&
         score_inside_limit? &&
         available_customer_success?
+    end
+
+    def self.allowed_size(costumer_success_list:)
+      costumer_success_list.size < LIMIT_SIZE
     end
 
     private

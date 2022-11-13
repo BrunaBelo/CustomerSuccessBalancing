@@ -67,6 +67,36 @@ class CustomerSuccessBalancingTests < Minitest::Test
     assert_equal 3, balancer.execute
   end
 
+  def test_invalid_size_customer_success
+    exception = assert_raises(Exception) do
+      CustomerSuccessBalancing.new(
+        build_scores(Array(1..1050)),
+        build_scores([10, 10, 10, 20, 20, 30, 30, 30, 20, 60]),
+        []
+      ).execute
+    end
+
+    assert_equal(
+      'The number of customer success must be less than 1.000',
+      exception.message
+    )
+  end
+
+  def test_invalid_size_customers
+    exception = assert_raises(Exception) do
+      CustomerSuccessBalancing.new(
+        build_scores([100, 99, 88, 3, 4, 5]),
+        build_scores(Array(1..1_000_010)),
+        []
+      ).execute
+    end
+
+    assert_equal(
+      'The number of customers must be less than 1.000.000',
+      exception.message
+    )
+  end
+
   private
 
   def build_scores(scores)

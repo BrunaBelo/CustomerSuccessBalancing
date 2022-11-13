@@ -1,7 +1,8 @@
 module Validations
   class CustomerValidation
-    LIMIT_SIZE = 100_000
+    LIMIT_SCORE = 100_000
     LIMIT_ID = 1_000_000
+    LIMIT_SIZE = 1_000_000
 
     def initialize(costumer:)
       @id = costumer[:id]
@@ -10,6 +11,10 @@ module Validations
 
     def valid?
       id_inside_limit? && score_inside_limit?
+    end
+
+    def self.allowed_size(customers:)
+      customers.size < LIMIT_SIZE
     end
 
     private
