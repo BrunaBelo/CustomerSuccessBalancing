@@ -28,6 +28,22 @@ module Filters
       assert_equal [{ id: 1, score: 1 }], filter.filter
     end
 
+    def test_sort_by_score
+      filter = described_class.new(
+        customer_success: [
+          { id: 1, score: 10 },
+          { id: 2, score: 15 },
+          { id: 3, score: 2 }
+        ],
+        away_customer_success: []
+      )
+      assert_equal [
+        { id: 3, score: 2 },
+        { id: 1, score: 10 },
+        { id: 2, score: 15 }
+      ], filter.filter
+    end
+
     private
 
     def described_class
