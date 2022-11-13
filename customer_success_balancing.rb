@@ -1,3 +1,4 @@
+require './filters/filter_valids_costumer_success.rb'
 
 class CustomerSuccessBalancing
   def initialize(customer_success, customers, away_customer_success)
@@ -8,16 +9,17 @@ class CustomerSuccessBalancing
 
   # Returns the ID of the customer success with most customers
   def execute
-    available_customer_success
+    valid_customer_success
   end
 
   private
 
   attr_reader :customer_success, :away_customer_success
 
-  def available_customer_success
-    customer_success.reject do |current_customer_success|
-      away_customer_success.include?(current_customer_success[:id])
-    end
+  def valid_customer_success
+    @valid_customer_success ||= Filters::FilterValidsCostumerSuccess.new(
+      customer_success: customer_success,
+      away_customer_success: away_customer_success
+    ).filter
   end
 end
