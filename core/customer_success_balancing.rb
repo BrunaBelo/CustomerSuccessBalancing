@@ -70,11 +70,11 @@ class CustomerSuccessBalancing
   end
 
   def customers_allowed_size?
-    Validations::CustomerValidation.allowed_size(customers: customers)
+    Validations::CustomerValidation.allowed_size?(customers: customers)
   end
 
   def customers_success_allowed_size?
-    Validations::CustomerSuccessValidation.allowed_size(
+    Validations::CustomerSuccessValidation.allowed_size?(
       customer_success_list: customer_success
     )
   end

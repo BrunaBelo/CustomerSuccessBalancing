@@ -13,7 +13,7 @@ module Validations
       id_inside_limit? && score_inside_limit?
     end
 
-    def self.allowed_size(customers:)
+    def self.allowed_size?(customers:)
       customers.size < LIMIT_SIZE
     end
 

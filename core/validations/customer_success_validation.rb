@@ -16,7 +16,7 @@ module Validations
         available_customer_success?
     end
 
-    def self.allowed_size(customer_success_list:)
+    def self.allowed_size?(customer_success_list:)
       customer_success_list.size < LIMIT_SIZE
     end
 
