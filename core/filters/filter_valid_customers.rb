@@ -1,4 +1,4 @@
-require './validations/customer_validations.rb'
+require './core/validations/customer_validations.rb'
 
 module Filters
   class FilterValidCustomers

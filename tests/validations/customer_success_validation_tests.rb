@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './validations/customer_success_validation.rb'
+require './core/validations/customer_success_validation.rb'
 
 module Validations
   class CustomerSuccessValidationTest < Minitest::Test

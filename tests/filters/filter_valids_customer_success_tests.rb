@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './filters/filter_valids_customer_success.rb'
+require './core/filters/filter_valids_customer_success.rb'
 
 module Filters
   class FilterValidsCustomerSuccessTests < Minitest::Test

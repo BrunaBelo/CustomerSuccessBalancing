@@ -1,8 +1,8 @@
-require './filters/filter_valids_customer_success.rb'
-require './filters/filter_valid_customers.rb'
-require './filters/filter_most_requested_customer_success.rb'
-require './validations/customer_success_validation.rb'
-require './validations/customer_validations.rb'
+require './core/filters/filter_valids_customer_success.rb'
+require './core/filters/filter_valid_customers.rb'
+require './core/filters/filter_most_requested_customer_success.rb'
+require './core/validations/customer_success_validation.rb'
+require './core/validations/customer_validations.rb'
 require './utils/message_errors.rb'
 
 class CustomerSuccessBalancing
