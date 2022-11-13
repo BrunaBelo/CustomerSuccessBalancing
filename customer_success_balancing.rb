@@ -1,4 +1,5 @@
 require './filters/filter_valids_customer_success.rb'
+require './filters/filter_valid_customers.rb'
 require './utils/message_errors.rb'
 require './validations/customer_success_validation.rb'
 require './validations/customer_validations.rb'
@@ -16,6 +17,7 @@ class CustomerSuccessBalancing
     return message_errors.invalid_size_customers unless customers_allowed_size?
 
     valid_customer_success
+    valid_customers
   end
 
   private
@@ -26,6 +28,12 @@ class CustomerSuccessBalancing
     @valid_customer_success ||= Filters::FilterValidsCustomerSuccess.new(
       customer_success: customer_success,
       away_customer_success: away_customer_success
+    ).filter
+  end
+
+  def valid_customers
+    @valid_customers ||= Filters::FilterValidCustomers.new(
+      customers: customers
     ).filter
   end
 
